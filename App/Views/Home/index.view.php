@@ -1,4 +1,10 @@
-<?php /** @var \Framework\Support\LinkGenerator $link */ ?>
+<?php
+
+/** @var LinkGenerator $link */
+
+use Framework\Support\LinkGenerator;
+
+?>
 <main>
   <div class="page-head">
     <h1>Vitajte v domácej knižnici</h1>

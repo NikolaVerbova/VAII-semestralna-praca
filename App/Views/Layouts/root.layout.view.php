@@ -1,8 +1,11 @@
 <?php
+
 /** @var string $contentHTML */
-/** @var \Framework\Support\LinkGenerator $link */
+/** @var LinkGenerator $link */
 
 // Aktuálna stránka (na zvýraznenie položky v menu)
+use Framework\Support\LinkGenerator;
+
 $c = strtolower($_GET['c'] ?? 'home');
 $current = fn(string $controller) => $c === $controller ? ' aria-current="page"' : '';
 ?>
@@ -17,7 +20,12 @@ $current = fn(string $controller) => $c === $controller ? ' aria-current="page"'
 <body>
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="<?= $link->url('home.index') ?>"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13C17 4 14 4.5 12 6z"/><path d="M12 6v13"/></svg><span>Domáca knižnica</span></a>
+    <a class="brand" href="<?= $link->url('home.index') ?>">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13C17 4 14 4.5 12 6z"/>
+        <path d="M12 6v13"/>
+      </svg>
+      <span>Domáca knižnica</span></a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Zobraziť menu">
     <label for="nav-toggle" class="nav-button">☰ Menu</label>
     <nav class="main-nav" aria-label="Hlavná navigácia">
