@@ -32,7 +32,7 @@ $current = fn(string $controller) => $c === $controller ? ' aria-current="page"'
       <ul>
         <li><a href="<?= $link->url('home.index') ?>"<?= $current('home') ?>>Domov</a></li>
         <li><a href="<?= $link->url('book.index') ?>"<?= $current('book') ?>>Katalóg kníh</a></li>
-        <li><a href="#">Moje miestnosti</a></li>
+        <li><a href="<?= $link->url('room.index') ?>"<?= $current('room') ?>>Moje miestnosti</a></li>
         <li><a href="#">Moje vypožičané knihy</a></li>
         <li><a href="#">Moje hodnotenia</a></li>
         <li><a class="btn" href="#">Prihlásiť sa</a></li>
