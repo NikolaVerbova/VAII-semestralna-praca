@@ -12,9 +12,9 @@
 
 <?php if (count($errors) > 0) : ?>
   <div class="alert" role="alert">
-<?php foreach ($errors as $error) : ?>
-    <p><?= e($error) ?></p>
-<?php endforeach ?>
+      <?php foreach ($errors as $error) : ?>
+        <p><?= e($error) ?></p>
+      <?php endforeach ?>
   </div>
 <?php endif ?>
 

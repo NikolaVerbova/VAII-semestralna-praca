@@ -17,7 +17,7 @@
     <p class="empty">Zatiaľ nemáte žiadnu miestnosť.</p>
 <?php else : ?>
     <div class="room-stack">
-<?php foreach ($rooms as $room) : ?>
+    <?php foreach ($rooms as $room) : ?>
       <article class="room-box">
         <div class="room-head">
           <h3><?= e($room->getName() ?? '') ?></h3>
@@ -32,7 +32,7 @@
           </form>
         </div>
       </article>
-<?php endforeach ?>
+    <?php endforeach ?>
     </div>
 <?php endif ?>
   </section>
