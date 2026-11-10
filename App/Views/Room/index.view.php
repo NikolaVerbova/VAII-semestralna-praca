@@ -1,6 +1,7 @@
 <?php
 
 /** @var \App\Models\Room[] $rooms */
+/** @var int[] $bookCounts */
 /** @var \Framework\Support\LinkGenerator $link */
 ?>
 <main>
@@ -17,11 +18,12 @@
     <p class="empty">Zatiaľ nemáte žiadnu miestnosť.</p>
 <?php else : ?>
     <div class="room-stack">
-    <?php foreach ($rooms as $room) : ?>
+<?php foreach ($rooms as $room) : ?>
       <article class="room-box">
         <div class="room-head">
           <h3><?= e($room->getName() ?? '') ?></h3>
           <span class="room-floor">Poschodie: <?= $room->getFloorNumber() ?></span>
+          <span class="room-floor">Počet kníh: <?= $bookCounts[$room->getId()] ?? 0 ?></span>
         </div>
         <p class="room-desc"><?= e($room->getDescription() ?? 'Bez popisu') ?></p>
         <div class="room-buttons">
@@ -32,7 +34,7 @@
           </form>
         </div>
       </article>
-    <?php endforeach ?>
+<?php endforeach ?>
     </div>
 <?php endif ?>
   </section>

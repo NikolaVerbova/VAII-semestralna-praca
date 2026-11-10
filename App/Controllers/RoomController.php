@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Book;
 use App\Models\Room;
 use Framework\Core\BaseController;
 use Framework\Http\HttpException;
@@ -16,8 +17,33 @@ class RoomController extends BaseController
     /** Zoznam miestností (Read) */
     public function index(Request $request): Response
     {
-        return $this->html(['rooms' => Room::getAll(orderBy: '`name` asc')]);
+        $bookCounts = [];
+        foreach (Book::getAll() as $book) {
+            $roomId = $book->getRoomId();
+
+            if ($roomId === null) {
+                continue;
+            }
+            $bookCounts[$roomId] = ($bookCounts[$roomId] ?? 0) + 1;
+        }
+
+        return $this->html([
+            'rooms' => Room::getAll(orderBy: '`name` asc'),
+            'bookCounts' => $bookCounts,
+        ]);
     }
+    /*public function index(Request $request): Response
+    {
+        $bookCounts = [];
+        foreach (Book::getAll() as $book) {
+            $roomId = $book->getRoomId();
+            $bookCounts[$roomId] = ($bookCounts[$roomId] ?? 0) + 1;
+        }
+        return $this->html([
+            'rooms' => Room::getAll(orderBy: '`name` asc'),
+            'bookCounts' => $bookCounts,
+        ]);
+    }*/
 
     /** Prázdny formulár (Create) */
     public function add(Request $request): Response
