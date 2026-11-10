@@ -67,9 +67,9 @@
       <p class="empty">V knižnici zatiaľ nie je žiadna kniha.</p>
 <?php else : ?>
       <ul class="book-grid">
-<?php foreach ($books as $book) : ?>
-    <?php $roomId = $book->getRoomId();
-    $room = $roomId !== null ? ($rooms[$roomId] ?? null) : null; ?>
+    <?php foreach ($books as $book) : ?>
+        <?php $roomId = $book->getRoomId();
+        $room = $roomId !== null ? ($rooms[$roomId] ?? null) : null; ?>
         <li><article class="book-card">
           <h3><?= e($book->getTitle() ?? '') ?></h3>
           <p class="author"><?= e($book->getAuthor() ?? '') ?></p>
@@ -84,7 +84,7 @@
             </form>
           </div>
         </article></li>
-<?php endforeach ?>
+    <?php endforeach ?>
       </ul>
 <?php endif ?>
     </section>
